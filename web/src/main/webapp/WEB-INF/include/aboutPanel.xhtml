@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+// Copyright (c) 2014, the Rekall project authors. Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+-->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:rekall="http://rekall.cent4ur.hu">
+
+    <p:panel id="aboutListPanel"
+             header="#{bundle['AboutTab.ListPanel.Header']}"
+             toggleable="true">
+
+        <p:dataTable id="propertyDataTable"
+                     var="property"
+                     value="#{aboutController.propertyDataModel}"
+                     selectionMode="single">
+
+            <p:column headerText="#{bundle['AboutTab.ListPanel.Table.PropertyColumn']}">
+                <h:outputText value="#{bundle[property.key]}"/>
+            </p:column>
+
+            <p:column headerText="#{bundle['AboutTab.ListPanel.Table.ValueColumn']}">
+                <h:outputText value="#{property.value}"/>
+            </p:column>
+
+        </p:dataTable>
+    </p:panel>
+
+    <p:panel id="logLogPanel"
+             header="#{bundle['AboutTab.LogPanel.Header']}"
+             toggleable="true">
+        <p:inputTextarea value="#{aboutController.logData}"
+                         disabled="true"
+                         rows="30"
+                         cols="80"/>
+    </p:panel>
+</ui:composition>

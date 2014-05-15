@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+// Copyright (c) 2014, the Rekall project authors. Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition template="/WEB-INF/template/main.xhtml">
+        <ui:define name="header">
+            <p:panel header="#{bundle['Title']} (#{loginController.username})"
+                     toggleable="true">
+                <p:panelGrid styleClass="headerGrid">
+                    <p:row>
+                        <p:column>
+                            <ui:include src="/WEB-INF/include/languageSelector.xhtml"/>
+                        </p:column>
+                        <p:column styleClass="logoutColumn">
+                            <h:commandLink id="logoutLink"
+                                           actionListener="#{loginController.logout}">
+                                <h:outputText value="#{bundle['Logout']}"/>
+                            </h:commandLink>
+                        </p:column>
+                        <p:commandButton id="registerButton"
+                             value="#{bundle['Register']}"
+                             update=":form:growl"
+                             actionListener="#{loginController.register}"
+                             oncomplete="handleLoginRequest(xhr, status, args)"/>
+                    </p:row>
+                </p:panelGrid>
+            </p:panel>
+        </ui:define>
+
+        <ui:define name="content">
+
+            <ui:include src="/WEB-INF/include/chatPanel.xhtml"/>
+
+            <p:tabView id="tabView">
+
+                <p:tab id="aboutTab"
+                       title="#{bundle['AboutTab.Title']}">
+                    <ui:include src="/WEB-INF/include/aboutPanel.xhtml"/>
+                </p:tab>
+
+            </p:tabView>
+        </ui:define>
+    </ui:composition>
+</html>

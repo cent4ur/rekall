@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+// Copyright (c) 2014, the Rekall project authors. Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+-->
+<facelet-taglib version="2.0"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+        http://java.sun.com/xml/ns/javaee/web-facelettaglibrary_2_0.xsd">
+
+    <namespace>http://rekall.cent4ur.hu</namespace>
+
+    <tag>
+        <tag-name>booleanValue</tag-name>
+        <source>tag/booleanValue.xhtml</source>
+        <attribute>
+            <description>Component identifier.</description>
+            <name>id</name>
+        </attribute>
+        <attribute>
+            <description>The boolean value that should be rendered.</description>
+            <name>value</name>
+        </attribute>
+    </tag>
+
+</facelet-taglib>

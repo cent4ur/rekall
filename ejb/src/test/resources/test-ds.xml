@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+// Copyright (c) 2014, the Rekall project authors. Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+-->
+<datasources xmlns="http://www.jboss.org/ironjacamar/schema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema
+                 http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
+
+    <datasource jndi-name="java:jboss/datasources/RekallOraTestDataSource"
+                pool-name="rekall-test"
+                enabled="true"
+                use-java-context="true">
+        <connection-url>jdbc:oracle:thin:@localhost:1521:xe</connection-url>
+        <driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+        <driver>${rekall.db.driver}</driver>
+        <security>
+            <user-name>${rekall.db-test.user}</user-name>
+            <password>${rekall.db-test.password}</password>
+        </security>
+    </datasource>
+</datasources>

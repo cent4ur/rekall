@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+// Copyright (c) 2014, the Rekall project authors. Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+-->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:outputScript name="js/login-dialog.js" target="head"/>
+
+    <p:dialog id="loginDialog"
+              widgetVar="loginDialogWidget"
+              header="#{bundle['Login']}"
+              resizable="false"
+              visible="true"
+              closable="false"
+              showEffect="bounce"
+              hideEffect="explode">
+
+        <h:panelGrid columns="2" cellpadding="5" styleClass="login">
+            <h:outputLabel value="#{bundle['Login.Username']}:" for="username"/>
+            <p:inputText id="username"
+                         value="#{loginController.username}"
+                         required="true"
+                         requiredMessage="#{bundle['Login.UsernameRequired']}"
+                         label="username"/>
+
+            <h:outputLabel value="#{bundle['Login.Password']}:" for="password"/>
+            <h:inputSecret id="password"
+                           value="#{loginController.password}"
+                           required="true"
+                           requiredMessage="#{bundle['Login.PasswordRequired']}"
+                           label="password"/>
+
+            <p:commandButton id="loginButton"
+                             value="#{bundle['Login']}"
+                             update=":form:growl"
+                             actionListener="#{loginController.login}"
+                             oncomplete="handleLoginRequest(xhr, status, args)"/>
+            <p:commandButton id="registerButton"
+                             value="#{bundle['Register']}"
+                             update=":form:growl"
+                             actionListener="#{loginController.register}"
+                             oncomplete="handleLoginRequest(xhr, status, args)"/>
+        </h:panelGrid>
+
+    </p:dialog>
+</ui:composition>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+// Copyright (c) 2014, the Rekall project authors. Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+-->
+<!DOCTYPE html>
+<html lang="#{localeController.locale.language}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<f:view locale="#{localeController.locale}">
+
+    <h:head>
+        <title>#{bundle['Title']}</title>
+        <h:outputStylesheet name="css/rekall.css"/>
+    </h:head>
+
+    <h:body>
+        <h:form id="form">
+            <p:growl id="growl" showDetail="true"/>
+            <header>
+                <ui:insert name="header">Header Section</ui:insert>
+            </header>
+
+            <ui:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}" />
+
+            <div id="content" class="content">
+                <ui:insert name="content">Main Content</ui:insert>
+            </div>
+        </h:form>
+    </h:body>
+</f:view>
+</html>
