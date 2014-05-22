@@ -30,10 +30,11 @@
         <version.wildfly.maven.plugin>1.0.1.Final</version.wildfly.maven.plugin>
         <version.wildfly.bom>8.0.0.Final</version.wildfly.bom>
         <version.wildfly>8.0.0.Final</version.wildfly>
+        <version.arquillian.container>8.0.0.Final</version.arquillian.container>
 
+        <version.surefire.plugin>2.10</version.surefire.plugin>
         <version.ear.plugin>2.6</version.ear.plugin>
         <version.ejb.plugin>2.3</version.ejb.plugin>
-        <version.surefire.plugin>2.10</version.surefire.plugin>
         <version.war.plugin>2.1.1</version.war.plugin>
 
         <maven.compiler.target>1.7</maven.compiler.target>
